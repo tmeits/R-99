@@ -75,6 +75,63 @@ r99.1.06 <- function(lst){
 r99.1.06(test)
 r99.1.06(test.bad)
 
+## 1.07 (**) Flatten a nested list structure. 
+#Transform a list, possibly holding lists as elements into a 'flat' list by 
+#replacing each list with its elements (recursively).
+
+#Example:
+#  > my_flatten([a, [b, [c, d], e]], X).
+#  X = [a, b, c, d, e]
+
+#Hint: Use the predefined predicates is_list/1 and append/3
+
+lst<-list('a', list('b', list('c', 'd'), 'e'))
+
+# base
+unlist(lst)
+# [1] "a" "b" "c" "d" "e"
+
+
+
+
+
+library(tcltk)
+library(help=tcltk)
+tkdestroy(wtop)
+wtop <- tktoplevel()
+w.titre <- tklabel(wtop, text="Additions")
+w.un <- tkentry(wtop)
+w.deux <- tkentry(wtop)
+w.resultat <- tklabel(wtop, text=0)
+tkpack(w.titre, w.un, w.deux, w.resultat)
+on.key.press <- function () {
+  # How complicated it os!
+  a <- tclvalue(tkget(w.un))
+  a <- eval(parse(text=a))
+  if(!is.numeric(a)) a <- 0
+  b <- eval(parse(text=b))
+  b <- tclvalue(tkget(w.deux))
+  if(!is.numeric(b)) b <- 0
+  tkconfigure(w.resultat, text=a+b)
+}
+tkbind(wtop, "<KeyPress>", on.key.press)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
